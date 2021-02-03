@@ -1,0 +1,59 @@
+.container {
+  position: absolute;
+  top: 10rem;
+  left: -279px;
+  padding: 2.4rem 3.2rem 1.6rem 3.2rem;
+  border: 0.1rem solid var(--lightGrey);
+  border-radius: 1.2rem;
+  z-index: 10;
+  background: var(--white);
+  box-shadow: rgba(0, 0, 0, 0.12) 0rem 0.6rem 1.6rem;
+}
+
+.space {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.calendar {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.min {
+  color: var(--grey);
+  margin-top: .8rem;
+}
+
+.close {
+  outline: none;
+  border: none;
+  background-color: var(--black);
+  color: var(--white);
+  padding: .8rem 1rem .8rem 1rem;
+  border-radius: .8rem;
+  cursor: pointer;
+}
+
+.clear {
+  outline: none;
+  border: none;
+  background-color: var(--white);
+  padding: .8rem 1.6rem .8rem 1.6rem;
+  border-radius: .8rem;
+  text-decoration: underline;
+  margin-right: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.clear:hover {
+  background-color: var(--lightestGrey);
+}
+
+.pickContainer {
+  height: 1.12rem;
+  width: 32.5rem;
+}
