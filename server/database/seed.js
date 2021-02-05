@@ -12,7 +12,7 @@ const secondary = [];
 for (let i = 0; i < 100; i += 1) {
   // const propertyId = i;
   const propertyId = 30506101 + i;
-  primary.push({  // properties; includes propID, prices,
+  primary.push({ // properties; includes propID, prices,
     // Cost/Reviews for n number of nights @ this propertyID will be calculated using these:
     propertyId,
     price: faker.random.number({ min: 150, max: 250 }),
