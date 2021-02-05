@@ -24,6 +24,7 @@ export default function CalendarCard(props) {
   const [errMessage, setErrMessage] = useState('');
 
   useEffect(() => {
+    // GET calender ->
     axios.get('/calendar')
       .then((response) => {
         setCalendar(response.data);
