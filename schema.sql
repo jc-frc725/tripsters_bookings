@@ -14,11 +14,8 @@ CREATE TABLE properties (
 CREATE TABLE bookings (
   bookingId serial PRIMARY KEY,
   propertyId integer REFERENCES properties,
-);
-
-CREATE TABLE dates (
-  bookingId serial REFERENCES bookings,
   start date,
   end date,
-)
+);
+
 
