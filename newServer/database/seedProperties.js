@@ -2,7 +2,7 @@ const path = require('path');
 const fs = require('fs');
 const faker = require('faker');
 
-const destination = path.resolve(__dirname, 'seedData', 'properties.csv');
+const destination = path.resolve(__dirname, 'seedData', 'propertiesTest.csv');
 // make a writeStream to seedData, name file properties.csv
 const stream = fs.createWriteStream(destination);
 
@@ -11,7 +11,7 @@ stream.write('propertyId,price,cleaning,avg,totalRev\n');
 let propertyId = 1;
 
 // make 10M historical records
-while (propertyId <= 10000000) {
+while (propertyId <= 1000) {
   // random generation
   const price = faker.random.number({ min: 100, max: 300 });
   const cleaning = Math.floor(faker.random.number({ min: 100, max: 250 }) * 0.12);
