@@ -2,7 +2,7 @@ const path = require('path');
 const fs = require('fs');
 const faker = require('faker');
 
-const destination = path.resolve(__dirname, 'seedData', 'propertiesTest.csv');
+const destination = path.resolve(__dirname, 'seedData', 'properties.csv');
 const stream = fs.createWriteStream(destination);
 
 stream.write('price,cleaning,avg,totalRev\n');

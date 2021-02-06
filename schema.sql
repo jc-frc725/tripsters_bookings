@@ -19,11 +19,11 @@ CREATE TABLE bookings (
 );
 
 COPY properties(price, cleaning, avg, totalRev)
-FROM '/home/jchow/hackreactor/sdc/sdc_root/Airbnb-Booking-Service/newServer/database/seedData/propertiesTest.csv'
+FROM '/home/jchow/hackreactor/sdc/sdc_root/Airbnb-Booking-Service/newServer/database/seedData/properties.csv'
 DELIMITER ','
 CSV HEADER;
 
 COPY bookings(propertyId, startDate, endDate)
-FROM '/home/jchow/hackreactor/sdc/sdc_root/Airbnb-Booking-Service/newServer/database/seedData/bookingsTest.csv'
+FROM '/home/jchow/hackreactor/sdc/sdc_root/Airbnb-Booking-Service/newServer/database/seedData/bookings.csv'
 DELIMITER ','
 CSV HEADER;

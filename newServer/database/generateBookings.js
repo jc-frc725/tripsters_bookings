@@ -4,7 +4,7 @@ const faker = require('faker');
 const moment = require('moment');
 const dateRanges = require('./dateRanges.js');
 
-const destination = path.resolve(__dirname, 'seedData', 'bookingsTest.csv');
+const destination = path.resolve(__dirname, 'seedData', 'bookings.csv');
 const stream = fs.createWriteStream(destination);
 
 stream.write('propertyId,startDate,endDate\n');
