@@ -2,7 +2,8 @@ const { Schema, model } = require('mongoose');
 
 const bookingSchema = new Schema({
   propertyId: String,
-  guest: {
+  
+  guest: { // not actually rendered in front end
     adults: Number,
     children: Number,
     infants: Number,

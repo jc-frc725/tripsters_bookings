@@ -4,6 +4,7 @@ const { Booking } = require('../model');
 const cal = (req, res) => {
   const calendarMonths = [];
   const dateObject = moment();
+  // generates calendar of up to two years from current date
   for (let i = 0; i < 24; i += 1) {
     const firstDayOfMonth = () => {
       const firstDay = moment(dateObject).startOf('month').format('d');
@@ -31,9 +32,16 @@ const cal = (req, res) => {
   const { propertyId } = req.params;
   Booking.find({ propertyId })
     .then((data) => {
+      // legacy: only 2 Bookings per Property in DB
+      // for each Booking, calculate the dates on the calendar that should are already booked
       data.forEach(({ date }) => {
+        // moment expects start/end to be in "MM-DD-YYYY"
+        console.log(`date ${JSON.stringify(date)}`);
+
         const dateStart = moment(date.start, 'MM-DD-YYYY');
         const dateEnd = moment(date.end, 'MM-DD-YYYY');
+        console.log(`dateStart ${JSON.stringify(dateStart)}`);
+        console.log(`dateEnd ${JSON.stringify(dateEnd)}`);
 
         const dayStart = +dateStart.format('D');
         const monthStart = dateStart.format('MMMM');
@@ -42,11 +50,12 @@ const cal = (req, res) => {
         const yearEnd = dateEnd.year();
 
         const daysDiff = dateEnd.diff(dateStart, 'days');
+        console.log(`daysDiff ${daysDiff}`);
         const firstDay = +dateStart.startOf('month').format('d');
         const firstEndDay = +dateEnd.startOf('month').format('d');
-
         const firstStartIndex = firstDay + dayStart - 1;
 
+        // check if booking goes thru end of one month and into next
         if (monthStart !== monthEnd) {
           const daysInFirstMonth = dateStart.daysInMonth() - (dayStart - 1);
           const daysInSecondMonth = daysDiff - daysInFirstMonth;

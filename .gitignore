@@ -4,3 +4,4 @@ client/dist/789.bundle.js
 client/dist/723.bundle.js
 client/dist/bundle.js.LICENSE.txt
 coverage
+newServer/database/seedData

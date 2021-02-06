@@ -10,6 +10,7 @@ import Guests from './components/Guests';
 
 import classes from './App.module.css';
 
+// do not GET and render calendar or price summary until clicked
 const CalendarCard = React.lazy(() => import('./components/CalendarCard'));
 const PriceSummary = React.lazy(() => import('./components/PriceSummary'));
 
@@ -20,6 +21,7 @@ export default function App() {
   const [checkIn, setCheckIn] = useState(null);
   const [checkOut, setCheckOut] = useState(null);
   const [home, setHome] = useState({
+    // Property data goes here:
     price: null,
     cleaning: null,
     avg: null,
@@ -46,6 +48,7 @@ export default function App() {
     if (inOrOut === 'in') {
       setCheckIn(day);
     } else if (moment(checkIn, 'MM-DD-YYYY').diff(moment(day, 'MM-DD-YYYY')) < 0) {
+      // if checkIn date i
       setCheckOut(day);
     }
   };
@@ -74,6 +77,7 @@ export default function App() {
       <Suspense fallback={null}>
         <PriceSummary
           price={home.price}
+          // # of nights is difference between checkOut and checkIn date, in
           nights={moment(checkOut, 'MM-DD-YYYY').diff(moment(checkIn, 'MM-DD-YYYY'), 'days')}
           cleaning={home.cleaning}
         />
