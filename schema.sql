@@ -1,5 +1,5 @@
-/*DROP DATABASE IF EXISTS bookingSerivce;
-CREATE DATABASE IF NOT EXISTS bookingService;*/
+DROP DATABASE IF EXISTS bookingSerivce;
+CREATE DATABASE bookingService;
 
 \c bookingservice;
 
@@ -18,4 +18,12 @@ CREATE TABLE bookings (
   endDate date
 );
 
+COPY properties(price, cleaning, avg, totalRev)
+FROM '/home/jchow/hackreactor/sdc/sdc_root/Airbnb-Booking-Service/newServer/database/seedData/propertiesTest.csv'
+DELIMITER ','
+CSV HEADER;
 
+COPY bookings(propertyId, startDate, endDate)
+FROM '/home/jchow/hackreactor/sdc/sdc_root/Airbnb-Booking-Service/newServer/database/seedData/bookingsTest.csv'
+DELIMITER ','
+CSV HEADER;
