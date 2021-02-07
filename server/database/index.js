@@ -1,7 +1,15 @@
-const mongoose = require('mongoose');
+const { Pool } = require('pg');
 
-mongoose.connect('mongodb://localhost:27017/calendar', { useNewUrlParser: true, useUnifiedTopology: true });
+const pool = new Pool({
+  user: 'jchow',
+  password: 'galv',
+  host: 'localhost',
+  database: 'bookingservice',
+  port: 5432
+});
 
-const db = mongoose.connection;
+pool.connect()
+  .then(console.log('Connected to PostgreSQL.'))
+  .catch(error => console.error(error));
 
-module.exports = db;
+module.exports = pool;
