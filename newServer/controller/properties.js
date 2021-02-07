@@ -7,3 +7,5 @@ const properties = (request, response) => {
       response.send(data)
     });
 }
+
+module.exports = properties;
