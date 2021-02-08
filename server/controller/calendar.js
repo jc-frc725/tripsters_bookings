@@ -75,7 +75,8 @@ const cal = (request, response) => {
         }
       });
       response.send(calendarMonths);
-    });
+    })
+    .catch(error => response.sendStatus(404));
 };
 
 module.exports = cal;
