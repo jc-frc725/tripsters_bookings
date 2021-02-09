@@ -5,3 +5,6 @@ client/dist/client_src_components_PriceSummary_index_jsx.bundle.js
 client/dist/bundle.js.LICENSE.txt
 coverage
 server/database/seedData
+newrelic.js
+newrelic_agent.log
+server/database/pgPass.js
