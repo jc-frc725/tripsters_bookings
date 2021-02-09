@@ -1,21 +1,38 @@
 import http from 'k6/http';
-// import { sleep } from 'k6';
+import { sleep, check } from 'k6';
+import { Rate } from 'k6/metrics';
 
-export let options = {
+export let errorRate = new Rate('errors');
 
-  scenarios: {
-    flat_requests_per_second: {
-      executor: 'constant-arrival-rate',
-      rate: 1000,
-      timeUnit: '1s',
-      preAllocatedVUs: 130,
-      maxVUs: 130,
-      duration: '1m',
-    },
-  },
-
-};
+const random = () => {
+  return (Math.floor(Math.random() * 10000000));
+}
 
 export default function () {
-  http.get(`http://localhost:3001/?propertyId=${Math.floor(Math.random() * 10000000)}`);
+  var url = `http://localhost:3001/?propertyId=${random()}/booking`;
+  var params = {};
+  check(http.get(url, params), {
+    'status is 200': (r) => r.status === 200,
+  }) || errorRate.add(1);
+  sleep(0);
 }
+
+// export let options = {
+
+//   scenarios: {
+//     flat_requests_per_second: {
+//       executor: 'constant-arrival-rate',
+//       rate: 10,
+//       timeUnit: '1s',
+//       preAllocatedVUs: 100,
+//       maxVUs: 200,
+//       duration: '1m',
+//     },
+//   },
+
+// };
+
+// export default function () {
+//   http.get(`http://localhost:3001/?propertyId=${Math.floor(Math.random() * 10000000)}/booking`);
+//   sleep(0.1);
+// }
