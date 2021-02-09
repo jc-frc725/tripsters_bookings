@@ -1,9 +1,9 @@
 const { Pool } = require('pg');
-
+const PG_PASS = require('./pgPass');
 const pool = new Pool({
   user: 'jchow',
-  password: 'galv',
   host: 'localhost',
+  password: PG_PASS,
   database: 'bookingservice',
   port: 5432
 });
