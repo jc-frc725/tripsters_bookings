@@ -15,11 +15,11 @@ CREATE TABLE bookings (
   bookingId serial PRIMARY KEY,
   propertyId integer REFERENCES properties,
   startDate date,
-  endDate date,
+  endDate date
 );
 
 CREATE INDEX booking_fk_index
-ON reviews ("propertyId" desc);
+ON bookings("propertyid" desc);
 
 COPY properties(price, cleaning, avg, totalRev)
 FROM '/home/jchow/hackreactor/sdc/sdc_root/Airbnb-Booking-Service/newServer/database/seedData/properties.csv'
