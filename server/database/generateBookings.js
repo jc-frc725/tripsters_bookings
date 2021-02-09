@@ -2,7 +2,6 @@ const path = require('path');
 const fs = require('fs');
 const faker = require('faker');
 const moment = require('moment');
-// const dateRanges = require('./dateRanges.js');
 
 const destination = path.resolve(__dirname, 'seedData', 'bookings.csv');
 const stream = fs.createWriteStream(destination);

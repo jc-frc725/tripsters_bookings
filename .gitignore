@@ -8,3 +8,4 @@ server/database/seedData
 newrelic.js
 newrelic_agent.log
 server/database/pgPass.js
+.env
