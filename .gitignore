@@ -2,8 +2,8 @@ node_modules
 client/dist/bundle.js
 client/dist/723.bundle.js
 client/dist/789.bundle.js
-client/dist/client_src_components_CalendarCard_index_jsx.bundle.js
-client/dist/client_src_components_PriceSummary_index_jsx.bundle.js
+client_src_components_CalendarCard_index_jsx.bundle.js
+client_src_components_PriceSummary_index_jsx.bundle.js
 client/dist/bundle.js.LICENSE.txt
 coverage
 server/database/seedData

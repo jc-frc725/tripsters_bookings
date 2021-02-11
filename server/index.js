@@ -1,7 +1,6 @@
 require('dotenv').config();
 require('newrelic');
 const express = require('express');
-const cors = require('cors');
 const morgan = require('morgan');
 const compression = require('compression');
 const path = require ('path');
@@ -14,7 +13,6 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 app.use(morgan('dev'));
-app.use(cors());
 app.use(express.json());
 app.use(compression());
 app.use(express.static(PUBLIC_DIR));
