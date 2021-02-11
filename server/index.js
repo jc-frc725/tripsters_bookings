@@ -3,7 +3,7 @@ require('newrelic');
 const express = require('express');
 //const morgan = require('morgan');
 //const compression = require('compression');
-const controller = require('controller');
+const controller = require('./controller');
 const path = require ('path');
 
 const PUBLIC_DIR = path.resolve(__dirname, '../client/dist');
