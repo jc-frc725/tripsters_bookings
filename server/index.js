@@ -16,12 +16,11 @@ const PORT = process.env.PORT || 3001;
 // app.use(morgan('dev'));
 // app.use(express.json());
 // app.use(compression());
-// app.use(express.static(PUBLIC_DIR));
 
 // app.use('/api/rooms/', router);
 app.get('/api/rooms/:propertyId/booking/calendar', controller.getCal);
 app.get('/api/rooms/:propertyId/booking', controller.getProp)
-
+app.use(express.static(PUBLIC_DIR));
 
 app.listen(PORT, () => {
   console.log(`Listening on PORT ${PORT}`);
