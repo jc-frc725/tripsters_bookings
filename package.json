@@ -19,7 +19,8 @@
     "build:prod": "webpack --config ./webpack.config.js --mode production",
     "coverage": "jest --collect-coverage",
     "lint": "eslint . --ext .js,.jsx",
-    "seed": "node ./server/database/seed.js",
+    "properties": "node ./server/database/generateProperties.js",
+    "bookings": "node ./server/database/generateBookings.js",
     "start": "nodemon ./server/index.js",
     "start:prod": "node ./server/index.js",
     "test": "jest"
